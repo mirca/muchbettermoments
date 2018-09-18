@@ -9,7 +9,10 @@ import numpy as np
 def quadratic_2d(data):
     arg_data_max = np.argmax(data)
     i, j = np.unravel_index(arg_data_max, data.shape)
-    z_ = data[i-1:i+2, j-1:j+2]
+    try:
+        z_ = data[i-1:i+2, j-1:j+2]
+    except IndexError:
+        return (i, j)
 
     # our quadratic function is defined as
     # f(x, y | a, b, c, d, e, f) := a + b * x + c * y + d * x^2 + e * xy + f * y^2
