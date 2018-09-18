@@ -12,5 +12,5 @@ def test_recover_center_of_gaussian_wo_noise():
     x, y = np.meshgrid(u, u)
     true_center = [3.45, 4.73]
     z = 10 * np.exp(- (x - true_center[1]) ** 2 - (y - true_center[0]) ** 2)
-    coeffs, center = quadratic_2d(z)
+    center = quadratic_2d(z)
     np.testing.assert_almost_equal(center, true_center, decimal=1)

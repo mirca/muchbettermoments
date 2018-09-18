@@ -8,7 +8,14 @@ import numpy as np
 
 def quadratic_2d(data):
     """
-    Compute the quadratic estimate in
+    Compute the quadratic estimate of the centroid in a 2d-array.
+
+    Args:
+        data (2darray): two dimensional data array
+
+    Returns
+        center (tuple): centroid estimate on the row and column directions,
+                        respectively
     """
     arg_data_max = np.argmax(data)
     i, j = np.unravel_index(arg_data_max, data.shape)
@@ -36,5 +43,4 @@ def quadratic_2d(data):
     det = 4 * d * f - e ** 2
     xm = - (2 * f * b - c * e) / det
     ym = - (2 * d * c - b * e) / det
-    return((a, b, c, d, e, f),
-           (i+xm, j+ym))
+    return (i+xm, j+ym)
